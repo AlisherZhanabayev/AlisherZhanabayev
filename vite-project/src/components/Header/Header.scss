@@ -1,0 +1,7 @@
+header {
+  border: 1px solid black;
+  grid-area: header;
+  background-color: #ffffff;
+  display: grid;
+  grid-template-columns: 1fr 253px;
+}

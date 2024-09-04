@@ -1,0 +1,9 @@
+.Layout {
+  margin: 0 auto;
+  display: grid;
+  grid-template-areas: "header header" "sidebar form";
+  grid-column-gap: 163px;
+  grid-template-columns: 60px 1fr;
+  grid-template-rows: 60px 1fr;
+  background-color: #e6ebef;
+}
