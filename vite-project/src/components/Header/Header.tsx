@@ -1,8 +1,8 @@
 import './Header.scss'
-import psLogo from '../../assets/images/ps-logo.svg'
-import bellIcon from '../../assets/images/bell-icon.svg'
-import tengeIcon from '../../assets/images/tenge-icon.svg'
-import avatar from '../../assets/images/avatar.svg'
+import psLogo from '../../assets/images/header-icons/ps-logo.svg'
+import bellIcon from '../../assets/images/header-icons/bell-icon.svg'
+import tengeIcon from '../../assets/images/header-icons/tenge-icon.svg'
+import avatar from '../../assets/images/header-icons/avatar.svg'
 
 export function Header() {
     return (

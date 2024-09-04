@@ -1,5 +1,75 @@
-.Sidebar {
-  border: 1px solid black;
+nav {
   grid-area: sidebar;
-  align-self: flex-start;
+  background-color: #2a2c36;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 0;
+  box-sizing: border-box;
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+
+    .top {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .middle {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .bottom {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      cursor: pointer;
+      width: 60px;
+      height: 40px;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 1;
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 3px;
+        transition: transform 0.3s ease;
+        transform: translateX(0);
+      }
+
+      &.active::before {
+        transform: translateX(5px);
+        background-color: #20a8d8;
+      }
+    }
+  }
 }
