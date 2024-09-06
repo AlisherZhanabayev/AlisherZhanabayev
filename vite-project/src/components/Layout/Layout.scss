@@ -2,8 +2,8 @@
   margin: 0 auto;
   display: grid;
   grid-template-areas: "header header" "sidebar form";
-  grid-column-gap: 163px;
-  grid-template-columns: 60px 1fr;
+  grid-column-gap: 10%;
+  grid-template-columns: 0.1fr 2fr;
   grid-template-rows: 60px 1fr;
-  height: 100vh;
+  min-height: 100vh;
 }

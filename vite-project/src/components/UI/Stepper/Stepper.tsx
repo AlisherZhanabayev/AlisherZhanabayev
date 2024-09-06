@@ -13,9 +13,22 @@ interface Props {
     icon: string;
     period: string; 
     price: number;
+    unit: string;
 }
 
-export function Stepper({defaultValue, onChange, price, period, placeholder, help, helpText, icon}: Props) {
+export function Stepper(props: Props) {
+    const { 
+        defaultValue, 
+        onChange, 
+        price, 
+        period, 
+        placeholder, 
+        help, 
+        helpText, 
+        icon, 
+        unit 
+    } = props;
+    
     const [isHelpVisible, setIsHelpVisible] = useState(false);
     const [stepperValue, setStepperValue] = useState(defaultValue);
 
@@ -40,11 +53,9 @@ export function Stepper({defaultValue, onChange, price, period, placeholder, hel
         onChange(newValue); 
     };
 
-    const totalPrice = defaultValue * price
-
     const monthToHourPrice = (price: number, period: string) => {
         if (period === 'inHour') {
-            return Math.round(price / 720); 
+            return (price / 720).toFixed(2); 
         }
         return price;
     };
@@ -82,8 +93,10 @@ export function Stepper({defaultValue, onChange, price, period, placeholder, hel
             </div>
             {price !== undefined && (
                 <div className="stepper-price">
-                    <span>{monthToHourPrice(totalPrice, period)}</span>
-                    <span>{period === 'inHour' ? ' тг/час' : ' тг/мес'}</span>
+                    <span>{monthToHourPrice(price, period)}</span>
+                    <span>
+                        {period === 'inHour' ? ` тг за ${unit}/час` : ` тг за ${unit}/мес`}
+                    </span>
                 </div>
             )}
 

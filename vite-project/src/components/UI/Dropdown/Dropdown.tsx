@@ -45,7 +45,7 @@ export function Dropdown({ options, defaultValue, onChange, placeholder, help, h
 
     const monthToHourPrice = (price: number, period: string) => {
         if (period === 'inHour') {
-            return Math.round(price / 720); 
+            return (price / 720).toFixed(2); 
         }
         return price;
     };
