@@ -75,7 +75,7 @@ export function Dropdown({ options, defaultValue, onChange, placeholder, help, h
                 className={`dropdown-header ${isOpen ? 'active' : ''}`}
                 onClick={() => setIsOpen(!isOpen)}
             >
-                <span>{selectedLabel}</span>
+                <span className='dropdown-value'>{selectedLabel}</span>
                 <span className='dropdown-arrow'>
                     {isOpen ? <img src={arrowUp} alt="arrow-up" /> : <img src={arrowDown} alt="arrow-down" />}
                 </span>

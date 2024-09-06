@@ -1,11 +1,11 @@
-.dropdown-container {
+.stepper-container {
   position: relative;
   max-width: 404px;
   min-width: 200px;
   margin-left: 40px;
   max-height: 78px;
 
-  .dropdown-placeholder-container {
+  .stepper-placeholder-container {
     position: absolute;
     top: -15px;
     left: 13px;
@@ -15,7 +15,7 @@
     align-items: center;
   }
 
-  .dropdown-placeholder {
+  .stepper-placeholder {
     font-size: 12px;
     font-weight: 400;
     line-height: 16.34px;
@@ -53,7 +53,7 @@
     opacity: 0;
   }
 
-  .dropdown-icon {
+  .stepper-icon {
     position: absolute;
     left: -40px;
     top: 5px;
@@ -61,7 +61,13 @@
     height: 30px;
   }
 
-  .dropdown-header {
+  .stepper-control {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+
+  .stepper-header {
     max-height: 40px;
     box-sizing: border-box;
     display: flex;
@@ -74,52 +80,21 @@
     font-size: 14px;
     line-height: 19.07px;
     font-weight: 700;
-    cursor: pointer;
     border-radius: 8px;
     transition: background-color 0.3s;
 
-    .dropdown-value {
-      margin-left: 7px;
+    .stepper-header-left {
+      display: flex;
+      align-items: center;
+      margin-left: 5px;
+
+      .stepper-value {
+        margin-left: 19.93px;
+      }
     }
   }
 
-  .dropdown-arrow {
-    display: flex;
-    align-items: center;
-    margin-right: 4px;
-  }
-
-  .dropdown-options {
-    position: absolute;
-    text-align: start;
-    top: 30px;
-    left: 0;
-    width: 100%;
-    background-color: #fff;
-    border: 1px solid #bdcdd5;
-    border-radius: 8px;
-    z-index: 1000;
-    padding: 0;
-    color: #bdcdd5;
-    font-size: 14px;
-    font-weight: 400;
-  }
-
-  .dropdown-option {
-    padding: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    list-style: none;
-
-    &:hover {
-      background-color: #f2f5f7;
-    }
-
-    &.selected {
-      color: #22232b;
-    }
-  }
-  .dropdown-price {
+  .stepper-price {
     margin-top: 5px;
     font-size: 12px;
     font-weight: 700;
