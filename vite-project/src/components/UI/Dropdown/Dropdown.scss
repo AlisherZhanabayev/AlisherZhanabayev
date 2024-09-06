@@ -1,0 +1,130 @@
+.dropdown-container {
+  position: relative;
+  max-width: 404px;
+  min-width: 200px;
+  margin-left: 40px;
+  max-height: 78px;
+
+  .dropdown-placeholder-container {
+    position: absolute;
+    top: -15px;
+    left: 10px;
+    background-color: #fff;
+    padding: 0 5px;
+    display: flex;
+    align-items: center;
+  }
+
+  .dropdown-placeholder {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16.34px;
+    color: #22232b;
+  }
+  .question-icon {
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+
+  .help {
+    position: absolute;
+    top: -20px;
+    left: 130px;
+    background-color: #f2f5f7;
+    border: 1px solid #bdcdd5;
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 10px;
+    color: #22232b;
+    white-space: nowrap;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    opacity: 1;
+    transition: opacity 0.5s ease;
+  }
+
+  .help.visible {
+    opacity: 1;
+  }
+
+  .help:not(.visible) {
+    opacity: 0;
+  }
+
+  .dropdown-icon {
+    position: absolute;
+    left: -40px;
+    top: 5px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .dropdown-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #bdcdd5;
+    color: #22232b;
+    font-size: 14px;
+    line-height: 19.07px;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+  }
+
+  .dropdown-arrow {
+    display: flex;
+    align-items: center;
+  }
+
+  .dropdown-options {
+    position: absolute;
+    text-align: start;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #bdcdd5;
+    border-radius: 8px;
+    z-index: 1000;
+    padding: 0;
+    color: #bdcdd5;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .dropdown-option {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    list-style: none;
+
+    &:hover {
+      background-color: #f2f5f7;
+    }
+
+    &.selected {
+      color: #22232b;
+    }
+  }
+  .dropdown-price {
+    margin-top: 5px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 18px;
+    color: #22232b;
+
+    span:first-child {
+      font-weight: 700;
+    }
+
+    span:nth-child(2) {
+      font-weight: 400;
+    }
+  }
+}
