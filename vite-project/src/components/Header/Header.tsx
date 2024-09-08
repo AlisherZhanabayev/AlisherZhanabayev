@@ -25,15 +25,15 @@ export function Header() {
     
     return (
         <>
-            <header>
-                <div className='burger-menu'  onClick={handleBurgerClick}>
+            <header className='header-container'>
+                <div className='header-burger-menu'  onClick={handleBurgerClick}>
                     <img src={!isSidebarOpen ? openIcon : closeIcon} alt="burger-menu" />
                 </div>
-                <div className='logo'>
+                <div className='header-logo'>
                     <img src={psLogo} alt="ps-logo"/>
                     <span>Консоль управления</span>
                 </div>
-                <div className='account'>
+                <div className='header-account'>
                     <div className='notifications'>
                         <img src={bellIcon} alt='bell-icon' />
                     </div>

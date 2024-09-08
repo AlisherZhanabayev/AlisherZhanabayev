@@ -10,10 +10,9 @@ interface Props {
   options: Option[];
   defaultValue: string;
   onChange: (value: string) => void;
-  style?: React.CSSProperties;
 }
 
-export function Select({ options, defaultValue, onChange, style }: Props) {
+export function Select({ options, defaultValue, onChange }: Props) {
   const [selectedValue, setSelectedValue] = useState(defaultValue);
 
   const handleSelect = (value: string) => {
@@ -22,7 +21,7 @@ export function Select({ options, defaultValue, onChange, style }: Props) {
   };
 
   return (
-    <div className="select-container" style={style}>
+    <div className="select-container">
       <div className="inline-select">
         {options.map((option) => (
           <div

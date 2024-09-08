@@ -12,6 +12,7 @@ nav {
   justify-content: space-between;
   padding: 10px 0;
   box-sizing: border-box;
+  transition: transform 0.3s ease-in-out;
 
   &.closed {
     transform: translateX(-100%);

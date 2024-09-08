@@ -82,9 +82,7 @@ export function Stepper(props: Props) {
             {icon && (
                 <img src={icon} alt="stepper-icon" className='stepper-icon' />
             )}
-            <div
-                className='stepper-header'
-            >
+            <div className='stepper-header'>
                 <div className='stepper-header-left'>
                     <img src={minusIcon} alt="minus-icon" onClick={handleDecrease} className="stepper-control" />
                     <span className='stepper-value'>{stepperValue}</span>

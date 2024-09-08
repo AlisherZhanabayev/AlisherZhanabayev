@@ -7,7 +7,7 @@ import pinIcon from '../../assets/images/nav-icons/pin-icon.svg'
 import { useState } from 'react'
 
 interface Props {
-    isOpen: boolean;
+    isOpen?: boolean;
 }
 
 export function Sidebar({ isOpen }: Props) {
