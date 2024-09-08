@@ -6,14 +6,18 @@ import languageIcon from '../../assets/images/nav-icons/language-icon.svg'
 import pinIcon from '../../assets/images/nav-icons/pin-icon.svg'
 import { useState } from 'react'
 
-export function Sidebar() {
+interface Props {
+    isOpen: boolean;
+}
+
+export function Sidebar({ isOpen }: Props) {
     const [active, setActive] = useState<number | null>(null);
 
     const handleClick = (index: number) => {
         setActive(index);
     };
     return (
-        <nav>
+        <nav className={isOpen ? 'open' : 'closed'}>
             <ul>
                 <div className="top">
                     <li className={active === 0 ? 'active' : ''} onClick={()=>handleClick(0)}>

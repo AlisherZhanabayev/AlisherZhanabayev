@@ -109,4 +109,19 @@
       font-weight: 400;
     }
   }
+  @media (max-width: 550px) {
+    .stepper-placeholder {
+      font-size: 10px;
+    }
+    .stepper-value {
+      font-size: 12px;
+    }
+    .stepper-price {
+      font-size: 10px;
+    }
+    .help {
+      top: -35px;
+      left: 5px;
+    }
+  }
 }

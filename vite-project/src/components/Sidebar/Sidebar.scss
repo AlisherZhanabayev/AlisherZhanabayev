@@ -13,6 +13,14 @@ nav {
   padding: 10px 0;
   box-sizing: border-box;
 
+  &.closed {
+    transform: translateX(-100%);
+  }
+
+  &.open {
+    transform: translateX(0);
+  }
+
   ul {
     padding: 0;
     margin: 0;
@@ -76,5 +84,11 @@ nav {
         background-color: #20a8d8;
       }
     }
+  }
+}
+
+@media (min-width: 550px) {
+  nav {
+    transform: translateX(0) !important;
   }
 }

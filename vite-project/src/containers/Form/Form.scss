@@ -1,12 +1,11 @@
 .form-container {
   background-color: #ffffff;
   grid-area: form;
-  margin-top: 53px;
+  margin: 53px 20px 53px 20px;
   max-width: 1452px;
   max-height: 100%;
   padding: 25px 30px 30px 30px;
   border-radius: 20px;
-  margin-bottom: 53px;
   box-sizing: border-box;
 
   .form-title {
@@ -119,5 +118,44 @@
 
   @media (max-width: 767px) {
     margin-right: 20px;
+  }
+}
+
+@media (max-width: 550px) {
+  .form-container {
+    padding: 10px 15px 10px 15px;
+    margin: 30px 20px;
+    .form-body {
+      grid-gap: 25px;
+    }
+    .modal {
+      font-size: 12px;
+      height: 40px;
+    }
+    .form-title {
+      font-size: 12px;
+    }
+    .form-header {
+      margin: 5px;
+      padding-bottom: 20px;
+      padding-top: 10px;
+    }
+    .form-footer {
+      .form-btn {
+        max-width: 200px;
+        height: 35px;
+      }
+      .form-footer-price {
+        margin-left: 10px;
+        span {
+          font-size: 12px;
+        }
+        span:nth-child(2) {
+          font-size: 16px;
+          line-height: 24.51px;
+          font-weight: 700;
+        }
+      }
+    }
   }
 }

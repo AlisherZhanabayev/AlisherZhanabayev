@@ -7,3 +7,9 @@
   grid-template-rows: 60px 1fr;
   min-height: 100vh;
 }
+
+@media (max-width: 550px) {
+  .Layout {
+    grid-template-areas: "header header" "form form";
+  }
+}

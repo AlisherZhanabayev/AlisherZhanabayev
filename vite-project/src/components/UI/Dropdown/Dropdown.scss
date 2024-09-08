@@ -134,4 +134,19 @@
       font-weight: 400;
     }
   }
+  @media (max-width: 550px) {
+    .dropdown-placeholder {
+      font-size: 10px;
+    }
+    .dropdown-value {
+      font-size: 12px;
+    }
+    .dropdown-price {
+      font-size: 10px;
+    }
+    .help {
+      top: -35px;
+      left: 5px;
+    }
+  }
 }
