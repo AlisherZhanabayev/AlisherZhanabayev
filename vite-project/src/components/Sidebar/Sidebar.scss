@@ -1,4 +1,4 @@
-nav {
+.sidebar {
   position: fixed;
   top: 60px;
   left: 0;
@@ -14,15 +14,15 @@ nav {
   box-sizing: border-box;
   transition: transform 0.3s ease-in-out;
 
-  &.closed {
+  &_closed {
     transform: translateX(-100%);
   }
 
-  &.open {
+  &_open {
     transform: translateX(0);
   }
 
-  ul {
+  &__list {
     padding: 0;
     margin: 0;
     list-style: none;
@@ -30,66 +30,61 @@ nav {
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+  }
 
-    .top {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+  &__top,
+  &__middle,
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__item {
+    display: flex;
+  }
+
+  &__button {
+    background: inherit;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    width: 60px;
+    height: 40px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+
+    &__icon {
+      width: 20px;
+      height: 20px;
     }
 
-    .middle {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 3px;
+      transition: transform 0.3s ease;
+      transform: translateX(0);
     }
 
-    .bottom {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    li {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 10px;
-      cursor: pointer;
-      width: 60px;
-      height: 40px;
-      box-sizing: border-box;
-      position: relative;
-      z-index: 1;
-
-      img {
-        width: 20px;
-        height: 20px;
-      }
-
-      &::before {
-        content: "";
-        position: absolute;
-        z-index: -1;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border-radius: 3px;
-        transition: transform 0.3s ease;
-        transform: translateX(0);
-      }
-
-      &.active::before {
-        transform: translateX(5px);
-        background-color: #20a8d8;
-      }
+    &_active::before {
+      transform: translateX(5px);
+      background-color: #20a8d8;
     }
   }
 }
 
 @media (min-width: 550px) {
-  nav {
+  .sidebar {
     transform: translateX(0) !important;
   }
 }

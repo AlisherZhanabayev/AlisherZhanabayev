@@ -1,31 +1,43 @@
-.form-container {
+.form {
   background-color: #ffffff;
   grid-area: form;
-  margin: 53px 20px 53px 20px;
+  margin: 53px 20px;
   max-width: 1452px;
-  max-height: 100%;
-  padding: 25px 30px 30px 30px;
+  width: 100%;
+  padding: 25px 30px;
   border-radius: 20px;
   box-sizing: border-box;
+  justify-self: center;
+  border: none;
+  height: fit-content;
+  overflow-y: auto;
 
-  .form-title {
+  &__fieldset {
+    border: none;
+    display: grid;
+    padding: 0;
+  }
+
+  &__title {
     font-size: 16px;
     line-height: 21.79px;
     font-weight: 700;
     color: #22232b;
   }
 
-  .form-header {
+  &__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 30px;
-    margin: 0px 30px 20px 30px;
+    margin: 0 30px 20px;
   }
 
-  .form-body {
+  &__body {
     display: grid;
-    grid-gap: 40px;
+    grid-row-gap: 20px;
+    grid-column-gap: 30px;
+    justify-items: center;
 
     @media (min-width: 1920px) {
       grid-template-columns: repeat(3, 1fr);
@@ -40,122 +52,166 @@
     }
   }
 
-  .form-footer {
+  &__footer {
     width: 100%;
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 444px auto;
     align-items: center;
     margin-top: 30px;
+    grid-gap: 30px;
 
-    .form-btn {
-      color: #ffffff;
-      line-height: 20px;
-      font-size: 14px;
-      font-weight: 700;
-      background-color: #20a8d8;
-      border: none;
-      border-radius: 10px;
-      max-width: 444px;
-      width: 100%;
-      height: 40px;
-      box-sizing: border-box;
-      cursor: pointer;
-
-      &:hover {
-        box-shadow: 0 0 10px 0 rgba(31, 159, 245, 1);
-      }
+    @media (max-width: 1365px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto;
+      justify-items: center;
+      text-align: center;
     }
+  }
 
-    .form-footer-price {
-      margin-left: 30px;
-      span {
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 19.07px;
-      }
+  &__btn {
+    color: #ffffff;
+    line-height: 20px;
+    font-size: 14px;
+    font-weight: 700;
+    background-color: #20a8d8;
+    border: none;
+    border-radius: 10px;
+    height: 40px;
+    width: 100%;
+    padding: 0;
+    max-width: 444px;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-family: "Open Sans";
 
-      span:nth-child(2) {
+    &:hover {
+      box-shadow: 0 0 10px 0 rgba(31, 159, 245, 1);
+    }
+  }
+
+  &__price {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+
+    span {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 19.07px;
+      margin-right: 3px;
+
+      &:nth-child(2) {
         font-size: 18px;
-        line-height: 24.51px;
+        line-height: 22px;
         font-weight: 700;
       }
     }
   }
 
-  .modal {
+  &__modal {
     position: fixed;
     top: -100px;
     left: 50%;
     height: 53px;
     transform: translateX(-50%);
     color: #fff;
-    padding: 0px 24px;
+    padding: 0 24px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     transition: top 0.5s ease;
     z-index: 1000;
     background-color: #20a8d8;
 
-    &.show {
+    &_show {
       top: 20px;
     }
   }
 
+  @media (min-width: 1366px) and (max-width: 1919px) {
+    max-width: 1000px;
+    .form__footer {
+      margin-left: 10px;
+    }
+  }
+
+  @media (max-width: 1180px) and (orientation: landscape) {
+    height: 80vh;
+    max-width: 600px;
+  }
+
+  @media (max-width: 1180px) and (orientation: portrait) {
+    height: fit-content;
+    max-width: 600px;
+  }
+
   @media (min-width: 1920px) {
     margin-right: 245px;
-    max-height: 450px;
   }
 
   @media (min-width: 1366px) and (max-width: 1919px) {
     margin-right: 10%;
-    max-height: 550px;
   }
 
   @media (min-width: 768px) and (max-width: 1365px) {
     margin-right: 7%;
-    max-height: 850px;
   }
 
   @media (max-width: 767px) {
     margin-right: 20px;
   }
-}
 
-@media (max-width: 550px) {
-  .form-container {
-    padding: 10px 15px 10px 15px;
+  @media (max-width: 550px) {
+    height: 85vh;
+    max-width: fit-content;
+    padding: 10px 15px;
     margin: 30px 20px;
-    .form-body {
+
+    &__body {
       grid-gap: 25px;
     }
-    .modal {
+
+    &__modal {
       font-size: 12px;
       height: 40px;
     }
-    .form-title {
+
+    &__title {
       font-size: 12px;
     }
-    .form-header {
+
+    &__header {
       margin: 5px;
       padding-bottom: 20px;
       padding-top: 10px;
     }
-    .form-footer {
-      .form-btn {
-        max-width: 200px;
+
+    &__footer {
+      align-items: center;
+      justify-content: center;
+      grid-gap: 10px;
+
+      &__btn {
         height: 35px;
+        max-width: 320px;
+        width: 120%;
       }
-      .form-footer-price {
-        margin-left: 10px;
-        span {
-          font-size: 12px;
-        }
-        span:nth-child(2) {
+    }
+    &__price {
+      margin-left: 10px;
+
+      span {
+        font-size: 12px;
+
+        &:nth-child(2) {
           font-size: 16px;
-          line-height: 24.51px;
           font-weight: 700;
         }
       }
     }
+  }
+
+  @media (max-width: 1000px) and (max-height: 450px) and (orientation: landscape) {
+    max-width: fit-content;
+    margin: 15px 25px;
   }
 }

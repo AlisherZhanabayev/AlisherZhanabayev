@@ -73,97 +73,99 @@ export function Form() {
 
 
     return (
-        <div className="form-container">
-            <div className='form-header'>
-                <span className='form-title'>Ресурсы вашего облака Virtuozzo PaaS</span>
-                <Select
-                    options={periodOptions}
-                    defaultValue={selectPeriod}
-                    onChange={setSelectPeriod}
-                />
-            </div>
-            <div className='form-body'>
-                <Stepper
-                    defaultValue={selectProcessorCores}
-                    onChange={setSelectProcessorCores}
-                    placeholder='Ядра процессора'
-                    icon={processorCoresIcon}
-                    price={processorCoresPrice}
-                    period={selectPeriod}
-                    unit='ядро'
-                />
-                <Stepper
-                    defaultValue={selectArchiveDisk}
-                    onChange={setSelectArchiveDisk}
-                    placeholder='Архивный диск, ГБ'
-                    icon={archiveDiskIcon}
-                    price={archiveDiskPrice}
-                    period={selectPeriod}
-                    help
-                    helpText='Выберите размер архивного диска'
-                    unit='ГБ'
-                />
-                <Dropdown
-                    options={routerOptions}
-                    onChange={setSelectRouter}
-                    defaultValue={selectRouter}
-                    placeholder='Маршрутизатор'
-                    help
-                    helpText='Выберите подходящий маршрутизатор'
-                    icon={routerIcon}
-                    period={selectPeriod}
-                />
-                <Stepper
-                    defaultValue={selectRam}
-                    onChange={setSelectRam}
-                    placeholder='Оперативная память, ГБ'
-                    icon={ramIcon}
-                    price={ramPrice}
-                    period={selectPeriod}
-                    unit='ГБ'
-                />
-                <Dropdown
-                    options={publicNetworkOptions}
-                    onChange={setSelectPublicNetwork}
-                    defaultValue={selectPublicNetwork}
-                    placeholder='Публичная сеть'
-                    icon={publicNetworkIcon}
-                    period={selectPeriod}
-                />
-                <Stepper
-                    defaultValue={selectFastDisk}
-                    onChange={setSelectFastDisk}
-                    placeholder='Быстрый диск NVME, ГБ'
-                    icon={fastDiskLogo}
-                    price={fastDiskPrice}
-                    period={selectPeriod}
-                    help
-                    helpText='Выберите размер быстрого диска NVME'
-                    unit='ГБ'
-                />
-                <Stepper
-                    defaultValue={selectRouterIpAddress}
-                    onChange={setSelectRouterIpAddress}
-                    placeholder='Маршрутизируемые IP-адреса'
-                    icon={routerIpAddressIcon}
-                    price={routerIpAddressPrice}
-                    period={selectPeriod}
-                    help
-                    helpText='Выберите количество маршрутизируемых IP-адресов'
-                    unit='адрес'
-                />
-            </div>
-            <div className='form-footer'>
-                <button className='form-btn' onClick={handleOrderClick}>Заказать</button>
-                <div className='form-footer-price'>
-                    <span>за </span>
-                    <span>{totalPrice} </span>
-                    <span>тг/{selectPeriod === 'inHour' ? 'час' : 'мес'}</span>
+        <form className="form">
+            <fieldset className='form__fieldset'>
+                <header className='form__header'>
+                    <legend className='form__title'>Ресурсы вашего облака Virtuozzo PaaS</legend> 
+                    <Select
+                        options={periodOptions}
+                        defaultValue={selectPeriod}
+                        onChange={setSelectPeriod}
+                    />
+                </header>
+                <div className='form__body'>
+                    <Stepper
+                        defaultValue={selectProcessorCores}
+                        onChange={setSelectProcessorCores}
+                        placeholder='Ядра процессора'
+                        icon={processorCoresIcon}
+                        price={processorCoresPrice}
+                        period={selectPeriod}
+                        unit='ядро'
+                    />
+                    <Stepper
+                        defaultValue={selectArchiveDisk}
+                        onChange={setSelectArchiveDisk}
+                        placeholder='Архивный диск, ГБ'
+                        icon={archiveDiskIcon}
+                        price={archiveDiskPrice}
+                        period={selectPeriod}
+                        help
+                        helpText='Выберите размер архивного диска'
+                        unit='ГБ'
+                    />
+                    <Dropdown
+                        options={routerOptions}
+                        onChange={setSelectRouter}
+                        defaultValue={selectRouter}
+                        placeholder='Маршрутизатор'
+                        help
+                        helpText='Выберите подходящий маршрутизатор'
+                        icon={routerIcon}
+                        period={selectPeriod}
+                    />
+                    <Stepper
+                        defaultValue={selectRam}
+                        onChange={setSelectRam}
+                        placeholder='Оперативная память, ГБ'
+                        icon={ramIcon}
+                        price={ramPrice}
+                        period={selectPeriod}
+                        unit='ГБ'
+                    />
+                    <Dropdown
+                        options={publicNetworkOptions}
+                        onChange={setSelectPublicNetwork}
+                        defaultValue={selectPublicNetwork}
+                        placeholder='Публичная сеть'
+                        icon={publicNetworkIcon}
+                        period={selectPeriod}
+                    />
+                    <Stepper
+                        defaultValue={selectFastDisk}
+                        onChange={setSelectFastDisk}
+                        placeholder='Быстрый диск NVME, ГБ'
+                        icon={fastDiskLogo}
+                        price={fastDiskPrice}
+                        period={selectPeriod}
+                        help
+                        helpText='Выберите размер быстрого диска NVME'
+                        unit='ГБ'
+                    />
+                    <Stepper
+                        defaultValue={selectRouterIpAddress}
+                        onChange={setSelectRouterIpAddress}
+                        placeholder='Маршрутизируемые IP-адреса'
+                        icon={routerIpAddressIcon}
+                        price={routerIpAddressPrice}
+                        period={selectPeriod}
+                        help
+                        helpText='Выберите количество маршрутизируемых IP-адресов'
+                        unit='адрес'
+                    />
                 </div>
-            </div>
-            <div className={`modal ${modalVisible ? 'show' : ''}`}>
-                <p>Добавлено в корзину</p>
-            </div>
-        </div>
+                <footer className='form__footer'>
+                    <button type="button" className='form__btn' onClick={handleOrderClick}>Заказать</button>
+                    <div className='form__price'>
+                        <span>за </span>
+                        <span>{totalPrice.toLocaleString('ru-RU')} </span>
+                        <span>тг/{selectPeriod === 'inHour' ? 'час' : 'мес'}</span>
+                    </div>
+                </footer>
+                <div className={`form__modal ${modalVisible ? 'form__modal_show' : ''}`}>
+                    <p>Добавлено в корзину</p>
+                </div>
+            </fieldset>
+        </form>
     )
 }

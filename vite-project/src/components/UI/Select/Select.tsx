@@ -21,18 +21,16 @@ export function Select({ options, defaultValue, onChange }: Props) {
   };
 
   return (
-    <div className="select-container">
-      <div className="inline-select">
+    <div className="select">
         {options.map((option) => (
           <div
             key={option.value}
-            className={`select-option ${option.value === selectedValue ? 'selected' : ''}`}
+            className={`select__option ${option.value === selectedValue ? 'select__option_selected' : ''}`}
             onClick={() => handleSelect(option.value)}
           >
             {option.label}
           </div>
         ))}
-      </div>
     </div>
   );
 }

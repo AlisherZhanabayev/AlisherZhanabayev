@@ -39,6 +39,14 @@ export function Stepper(props: Props) {
         }, 2000); 
     };
 
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const newValue = parseInt(e.target.value) || 0;
+        if (newValue >= 0 && newValue <= 999) {
+            setStepperValue(newValue);
+            onChange(newValue);
+        }
+    };
+
     const handleDecrease = () => {
         if (stepperValue > 0) {
             const newValue = stepperValue - 1;
@@ -60,44 +68,47 @@ export function Stepper(props: Props) {
         return price;
     };
 
-
     return (
-        <div className='stepper-container'>
+        <div className='stepper'>
             {placeholder && (
-                <div className="stepper-placeholder-container">
-                    <label className="stepper-placeholder">{placeholder}</label>
+                <div className="stepper__placeholder">
+                    <label className="stepper__placeholder-label">{placeholder}</label>
                     {help && <img 
                         src={questionIcon} 
                         alt="question-icon" 
-                        className="question-icon"
+                        className="stepper__placeholder-icon"
                         onClick={toggleHelp} 
                     />}
                     {isHelpVisible && helpText && (
-                        <div className={`help ${isHelpVisible ? 'visible' : ''}`}>
+                        <div className={`stepper__help ${isHelpVisible ? 'stepper__help_visible' : ''}`}>
                             {helpText}
                         </div>
                     )}
                 </div>
             )}
             {icon && (
-                <img src={icon} alt="stepper-icon" className='stepper-icon' />
+                <img src={icon} alt="stepper-icon" className='stepper__icon' />
             )}
-            <div className='stepper-header'>
-                <div className='stepper-header-left'>
-                    <img src={minusIcon} alt="minus-icon" onClick={handleDecrease} className="stepper-control" />
-                    <span className='stepper-value'>{stepperValue}</span>
+            <div className='stepper__container'>
+                 <div className='stepper__container-left'>
+                    <img src={minusIcon} alt="minus-icon" onClick={handleDecrease} className="stepper__control" />
+                    <input 
+                        type="number" 
+                        className="stepper__input"  
+                        value={stepperValue} 
+                        onChange={handleInputChange} 
+                    />
                 </div>
-                <img src={plusIcon} alt="plus-icon" onClick={handleIncrease} className="stepper-control"/>
+                <img src={plusIcon} alt="plus-icon" onClick={handleIncrease} className="stepper__control" />
             </div>
             {price !== undefined && (
-                <div className="stepper-price">
-                    <span>{monthToHourPrice(price, period)}</span>
+                <div className="stepper__price">
+                    <span>{monthToHourPrice(price, period).toLocaleString('ru-RU')}</span>
                     <span>
                         {period === 'inHour' ? ` тг за ${unit}/час` : ` тг за ${unit}/мес`}
                     </span>
                 </div>
             )}
-
         </div>
     )
 }

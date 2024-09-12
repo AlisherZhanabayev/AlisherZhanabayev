@@ -51,41 +51,41 @@ export function Dropdown({ options, defaultValue, onChange, placeholder, help, h
     };
 
     return (
-        <div className="dropdown-container">
+        <div className="dropdown">
             {placeholder && (
-                <div className="dropdown-placeholder-container">
-                    <label className="dropdown-placeholder">{placeholder}</label>
+                <div className="dropdown__placeholder">
+                    <label className="dropdown__placeholder-label">{placeholder}</label>
                     {help && <img 
                         src={questionIcon} 
                         alt="question-icon" 
-                        className="question-icon"
+                        className="dropdown__placeholder-icon"
                         onClick={toggleHelp} 
                     />}
                     {isHelpVisible && helpText && (
-                        <div className={`help ${isHelpVisible ? 'visible' : ''}`}>
+                        <div className={`dropdown__help ${isHelpVisible ? 'dropdown__help_visible' : ''}`}>
                             {helpText}
                         </div>
                     )}
                 </div>
             )}
             {icon && (
-                <img src={icon} alt="dropdown-icon" className='dropdown-icon' />
+                <img src={icon} alt="dropdown-icon" className='dropdown__icon' />
             )}
             <div
-                className={`dropdown-header ${isOpen ? 'active' : ''}`}
+                className={`dropdown__container ${isOpen ? 'dropdown__container_active' : ''}`}
                 onClick={() => setIsOpen(!isOpen)}
             >
-                <span className='dropdown-value'>{selectedLabel}</span>
-                <span className='dropdown-arrow'>
+                <span className='dropdown__container-value'>{selectedLabel}</span>
+                <span className='dropdown__container-arrow'>
                     {isOpen ? <img src={arrowUp} alt="arrow-up" /> : <img src={arrowDown} alt="arrow-down" />}
                 </span>
             </div>
             {isOpen && (
-                <ul className="dropdown-options">
+                <ul className="dropdown__options">
                     {options.map(option => (
                         <li
                             key={option.value}
-                            className={`dropdown-option ${option.value === dropdownValue ? 'selected' : ''}`}
+                            className={`dropdown__options-item ${option.value === dropdownValue ? 'dropdown__options-item_selected' : ''}`}
                             onClick={() => handleSelect(option.value)}
                         >
                             {option.label}
@@ -94,8 +94,8 @@ export function Dropdown({ options, defaultValue, onChange, placeholder, help, h
                 </ul>
             )}
             {selectedPrice !== undefined && (
-                <div className="dropdown-price">
-                    <span>{monthToHourPrice(selectedPrice, period)}</span>
+                <div className="dropdown__price">
+                    <span>{monthToHourPrice(selectedPrice, period).toLocaleString('ru-RU')}</span>
                     <span>{period === 'inHour' ? ' тг/час' : ' тг/мес'}</span>
                 </div>
             )}

@@ -1,34 +1,40 @@
-.dropdown-container {
+.dropdown {
   position: relative;
   max-width: 404px;
   min-width: 200px;
+  width: 100%;
   margin-left: 40px;
   max-height: 78px;
 
-  .dropdown-placeholder-container {
+  @media (max-width: 550px) {
+    max-width: 280px;
+  }
+
+  &__placeholder {
     position: absolute;
-    top: -15px;
-    left: 13px;
+    top: -14px;
+    left: 14px;
     background-color: #fff;
     padding: 0 5px;
     display: flex;
     align-items: center;
+
+    &-label {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 16.34px;
+      color: #22232b;
+    }
+
+    &-icon {
+      width: 14px;
+      height: 14px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
   }
 
-  .dropdown-placeholder {
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 16.34px;
-    color: #22232b;
-  }
-  .question-icon {
-    width: 14px;
-    height: 14px;
-    cursor: pointer;
-    margin-left: 10px;
-  }
-
-  .help {
+  &__help {
     position: absolute;
     top: -20px;
     left: 130px;
@@ -43,13 +49,13 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     opacity: 1;
     transition: opacity 0.5s ease;
+
+    &_visible {
+      opacity: 1;
+    }
   }
 
-  .help.visible {
-    opacity: 1;
-  }
-
-  .dropdown-icon {
+  &__icon {
     position: absolute;
     left: -40px;
     top: 5px;
@@ -57,7 +63,7 @@
     height: 30px;
   }
 
-  .dropdown-header {
+  &__container {
     max-height: 40px;
     box-sizing: border-box;
     display: flex;
@@ -74,18 +80,18 @@
     border-radius: 8px;
     transition: background-color 0.3s;
 
-    .dropdown-value {
+    &-value {
       margin-left: 7px;
+    }
+
+    &-arrow {
+      display: flex;
+      align-items: center;
+      margin-right: 8px;
     }
   }
 
-  .dropdown-arrow {
-    display: flex;
-    align-items: center;
-    margin-right: 4px;
-  }
-
-  .dropdown-options {
+  &__options {
     position: absolute;
     text-align: start;
     top: 30px;
@@ -99,23 +105,24 @@
     color: #bdcdd5;
     font-size: 14px;
     font-weight: 400;
+
+    &-item {
+      padding: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      list-style: none;
+
+      &:hover {
+        background-color: #f2f5f7;
+      }
+
+      &_selected {
+        color: #22232b;
+      }
+    }
   }
 
-  .dropdown-option {
-    padding: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    list-style: none;
-
-    &:hover {
-      background-color: #f2f5f7;
-    }
-
-    &.selected {
-      color: #22232b;
-    }
-  }
-  .dropdown-price {
+  &__price {
     margin-top: 5px;
     font-size: 12px;
     font-weight: 700;
@@ -130,17 +137,24 @@
       font-weight: 400;
     }
   }
-  @media (max-width: 550px) {
-    .dropdown-placeholder {
+}
+
+@media (max-width: 550px) {
+  .dropdown {
+    &__placeholder {
+      &-label {
+        font-size: 10px;
+      }
+    }
+    &__container {
+      &-value {
+        font-size: 12px;
+      }
+    }
+    &__price {
       font-size: 10px;
     }
-    .dropdown-value {
-      font-size: 12px;
-    }
-    .dropdown-price {
-      font-size: 10px;
-    }
-    .help {
+    &__help {
       top: -35px;
       left: 5px;
     }

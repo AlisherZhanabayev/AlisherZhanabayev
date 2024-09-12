@@ -1,4 +1,4 @@
-.header-container {
+.header {
   position: fixed;
   top: 0;
   left: 0;
@@ -8,22 +8,23 @@
   grid-area: header;
   background-color: #ffffff;
   display: grid;
-  grid-template-columns: 1fr 253px;
+  grid-template-columns: 1fr 265px;
+  align-items: center;
 
-  .header-burger-menu {
+  &__burger-menu {
     display: none;
   }
 
-  .header-logo {
+  &__logo {
     display: grid;
     grid-column-gap: 13px;
     grid-template-columns: 34px 94px;
 
-    img {
+    &-icon {
       margin: 12px 18px 0 13px;
     }
 
-    span {
+    &-text {
       font-weight: 700;
       font-size: 12px;
       line-height: 16.34px;
@@ -33,136 +34,162 @@
     }
   }
 
-  .header-account {
-    display: grid;
-    grid-template-columns: 40px 95px 94px;
-    margin: 14px 0 14px 0;
+  &__account {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     width: 253px;
+    height: 32px;
 
-    .notifications {
-      position: relative;
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      border: 2px solid #51bb76;
-      background-color: #f2f5f7;
+    &-menu {
+      max-width: 150px;
+      min-width: 100px;
+      position: absolute;
       display: flex;
-      align-items: center;
-      justify-content: center;
-
-      img {
-        margin: 7.5px 7px 6.5px 7px;
-      }
-
-      &::after {
-        content: "";
-        position: absolute;
-        top: -2px;
-        left: 18px;
-        width: 8px;
-        height: 8px;
-        background-color: #51bb76;
-        border-radius: 50%;
-      }
-    }
-    .balance {
-      display: grid;
-      grid-template-columns: 30px 55px;
-      grid-template-rows: 32px;
-      .balance-logo {
-        background-color: #f2f5f7;
-        border-radius: 50%;
-        width: 30px;
-        height: 30px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .acc {
-        display: grid;
-        margin: 1px 12px 1px 10px;
-      }
-
-      .account-id {
-        font-weight: 700;
-        font-size: 12px;
-        line-height: 16.34px;
-        color: #22232b;
-      }
-      .sum {
-        font-weight: 400;
-        font-size: 12px;
-        line-height: 16.34px;
-        color: #737e84;
-      }
-    }
-    .user {
-      display: grid;
-      grid-template-columns: 30px 55px;
-
-      .avatar {
-        position: relative;
-        margin: 1px 12px 1px 10px;
-
-        .account-menu {
-          max-width: 150px;
-          min-width: 100px;
-          position: absolute;
-          display: flex;
-          flex-direction: column;
-          align-items: flex-end;
-          top: 50px;
-          right: -30px;
-          background-color: #fff;
-          border-radius: 8px;
-          padding: 10px;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-          font-weight: 400;
-          font-size: 12px;
-          line-height: 16.34px;
-          color: #22232b;
-        }
-      }
-
-      .user-name {
-        display: grid;
-        margin: 1px 12px 1px 24px;
-        .firstname {
-          font-weight: 700;
-          color: #22232b;
-          font-size: 12px;
-          line-height: 16.34px;
-        }
-        .secondname {
-          font-weight: 400;
-          color: #737e84;
-          font-size: 12px;
-          line-height: 16.34px;
-        }
-      }
+      flex-direction: column;
+      align-items: flex-end;
+      top: 65px;
+      right: 6px;
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 16.34px;
+      color: #22232b;
     }
   }
 
-  @media (max-width: 550px) {
-    .header-account {
+  &__notifications {
+    position: relative;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 2px solid #51bb76;
+    background-color: #f2f5f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5px 22px 0.5px 0;
+
+    &-icon {
+      margin: 7.5px 7px 6.5px 7px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: 18px;
+      width: 8px;
+      height: 8px;
+      background-color: #51bb76;
+      border-radius: 50%;
+    }
+  }
+
+  &__balance {
+    display: flex;
+    align-items: center;
+    width: 95px;
+    height: 32px;
+    margin-right: 12px;
+
+    &-logo {
+      background-color: #f2f5f7;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &-icon {
+        margin: 0;
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    &-info {
+      margin: 1px 0px 1px 10px;
+      width: 55px;
+      height: 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+    }
+
+    &-sum {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 16.34px;
+      color: #737e84;
+    }
+
+    &-id {
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 16.34px;
+      color: #22232b;
+    }
+  }
+
+  &__user {
+    display: flex;
+    width: 94px;
+    height: 32px;
+    align-items: center;
+
+    &-info {
+      margin: 1px 0 1px 10px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-firstname {
+      font-weight: 700;
+      color: #22232b;
+      font-size: 12px;
+      line-height: 16.34px;
+    }
+
+    &-secondname {
+      font-weight: 400;
+      color: #737e84;
+      font-size: 12px;
+      line-height: 16.34px;
+    }
+  }
+
+  &__avatar {
+    position: relative;
+    margin: 1px 0 1px 12px;
+    all: unset;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 550px) {
+  .header {
+    &__account {
       width: 80px;
       grid-template-columns: 30px 30px;
-      .avatar {
+      .header__avatar {
         cursor: pointer;
       }
-      .notifications {
+      .header__notifications {
         top: 1px;
+        margin-right: 10px;
       }
-      .balance {
+      .header__balance {
         display: none;
-        .acc {
-          display: none;
-        }
       }
-      .user {
-        .firstname,
-        .secondname {
+      .header__user-info {
+        .header__firstname,
+        .header__secondname {
           display: none;
         }
       }
@@ -171,22 +198,27 @@
 }
 
 @media (max-width: 550px) {
-  .header-container {
+  .header {
     grid-template-columns: 60px 1fr 80px;
     justify-items: center;
     align-items: center;
-    .header-logo {
+
+    &__logo {
       width: 34px;
+
       img {
         margin: 0;
       }
-      span {
+
+      &-text {
         display: none;
       }
     }
-    .header-burger-menu {
+
+    &__burger-menu {
       cursor: pointer;
       display: block;
+
       img {
         width: 30px;
         height: 30px;
